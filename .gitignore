@@ -1,0 +1,192 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# iOS/XCode related
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# macOS
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Coverage
+coverage/
+
+# Firebase related
+**/firebase-debug.log
+**/firebase-debug.*.log
+**/.firebase/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.staging
+.env.production
+
+# FlutterFlow specific
+lib/flutter_flow/
+lib/generated/
+**/ff_route.dart
+**/generated_plugin_registrant.dart
+
+# Custom code backups
+lib/custom_code/backup/
+
+# Test coverage
+coverage/
+lcov.info
+test/.test_coverage.dart
+
+# Web build
+web/
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.reflectable.dart
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Package files
+*.dmg
+*.iso
+*.tar
+*.tar.gz
+*.zip
+
+# API keys and secrets
+secrets/
+private/
+keys/
+credentials/
+
+# Firebase configuration (keep templates)
+google-services.json
+GoogleService-Info.plist
+firebase-config.js
+.firebaserc
+firebase.json
+
+# FlutterFlow export artifacts
+export/
+*.flutterflow
+
+# Documentation build artifacts
+docs/_build/
+docs/.vuepress/dist/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# IDE specific
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# OS specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Node modules (if using Firebase functions)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Function build artifacts
+functions/.runtimeconfig.json
+functions/lib/
+functions/node_modules/
+
+# Backup files
+*.backup
+*.bak
+*.orig
+
+# Performance profiling
+*.cpuprofile
+*.heapsnapshot
+
+# Local development
+.local/
+local/ 

@@ -1,0 +1,634 @@
+{
+  "app_name": "Hopin",
+  "app_description": "Student ride-sharing app for Stellenbosch University",
+  "theme": {
+    "primary_color": "#2563EB",
+    "secondary_color": "#059669",
+    "accent_color": "#DC2626",
+    "surface_color": "#FFFFFF",
+    "background_color": "#F8FAFC",
+    "text_primary": "#0F172A",
+    "text_secondary": "#64748B",
+    "success_color": "#059669",
+    "warning_color": "#D97706",
+    "error_color": "#DC2626"
+  },
+  "screens": [
+    {
+      "screen_name": "splash_screen",
+      "components": [
+        {
+          "type": "logo",
+          "properties": {
+            "text": "Hopin",
+            "font_size": 48,
+            "color": "primary_color",
+            "animation": "fade_in"
+          }
+        },
+        {
+          "type": "tagline",
+          "properties": {
+            "text": "Student rides made simple",
+            "font_size": 16,
+            "color": "text_secondary"
+          }
+        }
+      ]
+    },
+    {
+      "screen_name": "onboarding",
+      "components": [
+        {
+          "type": "page_view",
+          "pages": [
+            {
+              "title": "Find Your Ride",
+              "description": "Connect with fellow students heading your way",
+              "image": "students_in_car_illustration"
+            },
+            {
+              "title": "Share the Journey",
+              "description": "Offer rides and split fuel costs with your peers",
+              "image": "map_routes_illustration"
+            },
+            {
+              "title": "Safe & Trusted",
+              "description": "Verified student community for secure travel",
+              "image": "safety_shield_illustration"
+            }
+          ]
+        },
+        {
+          "type": "get_started_button",
+          "properties": {
+            "text": "Get Started",
+            "style": "primary",
+            "action": "navigate_to_login"
+          }
+        }
+      ]
+    },
+    {
+      "screen_name": "login_register",
+      "components": [
+        {
+          "type": "tab_bar",
+          "tabs": ["Login", "Register"]
+        },
+        {
+          "type": "input_field",
+          "properties": {
+            "label": "Student Email",
+            "hint": "your.name@sun.ac.za",
+            "validation": "email",
+            "required": true
+          }
+        },
+        {
+          "type": "input_field",
+          "properties": {
+            "label": "Password",
+            "type": "password",
+            "validation": "min_length_6",
+            "required": true
+          }
+        },
+        {
+          "type": "input_field",
+          "properties": {
+            "label": "Student Number",
+            "hint": "12345678",
+            "show_on": "register_tab",
+            "required": true
+          }
+        },
+        {
+          "type": "input_field",
+          "properties": {
+            "label": "Phone Number",
+            "hint": "+27 XX XXX XXXX",
+            "show_on": "register_tab",
+            "required": true
+          }
+        },
+        {
+          "type": "primary_button",
+          "properties": {
+            "text": "Continue",
+            "action": "authenticate_user"
+          }
+        }
+      ]
+    },
+    {
+      "screen_name": "home_feed",
+      "navigation": {
+        "type": "bottom_tab",
+        "position": 0,
+        "icon": "home",
+        "label": "Home"
+      },
+      "components": [
+        {
+          "type": "app_bar",
+          "components": [
+            {
+              "type": "greeting_text",
+              "properties": {
+                "text": "Hi [Username]!",
+                "font_size": 20,
+                "font_weight": "bold"
+              }
+            },
+            {
+              "type": "location_chip",
+              "properties": {
+                "text": "Stellenbosch",
+                "icon": "location_pin",
+                "action": "change_location"
+              }
+            },
+            {
+              "type": "profile_avatar",
+              "properties": {
+                "action": "navigate_to_profile"
+              }
+            }
+          ]
+        },
+        {
+          "type": "destination_search_bar",
+          "properties": {
+            "hint": "Where are you going?",
+            "style": "uber_search_bar",
+            "recent_destinations": true,
+            "campus_suggestions": ["Main Campus", "Welgevallen", "Tygerberg", "Medical Campus"]
+          }
+        },
+        {
+          "type": "map_preview",
+          "properties": {
+            "height": "40%",
+            "show_nearby_rides": true,
+            "interactive": true,
+            "initial_location": "Stellenbosch University",
+            "zoom_level": 14
+          }
+        },
+        {
+          "type": "ride_options_carousel",
+          "components": [
+            {
+              "type": "ride_option",
+              "properties": {
+                "title": "HopinPool",
+                "subtitle": "Share with students",
+                "icon": "users",
+                "price_range": "R15-R25",
+                "eta": "5-10 min",
+                "color": "secondary_color"
+              }
+            },
+            {
+              "type": "ride_option",
+              "properties": {
+                "title": "HopinGo",
+                "subtitle": "Direct ride",
+                "icon": "car",
+                "price_range": "R25-R40",
+                "eta": "3-8 min",
+                "color": "primary_color"
+              }
+            }
+          ]
+        },
+        {
+          "type": "campus_quick_actions",
+          "components": [
+            {
+              "type": "quick_destination",
+              "properties": {
+                "label": "To Campus",
+                "icon": "academic_cap",
+                "action": "preset_campus_destination"
+              }
+            },
+            {
+              "type": "quick_destination",
+              "properties": {
+                "label": "To Residence",
+                "icon": "home",
+                "action": "preset_residence_destination"
+              }
+            },
+            {
+              "type": "quick_destination",
+              "properties": {
+                "label": "To Town",
+                "icon": "building_storefront",
+                "action": "preset_town_destination"
+              }
+            }
+          ]
+        },
+        {
+          "type": "section_header",
+          "properties": {
+            "text": "Available Rides",
+            "action_text": "View All",
+            "action": "navigate_to_all_rides"
+          }
+        },
+        {
+          "type": "ride_list",
+          "components": [
+            {
+              "type": "ride_card",
+              "properties": {
+                "driver_name": "[Driver Name]",
+                "driver_avatar": "[Avatar URL]",
+                "pickup_location": "[Pickup Point]",
+                "dropoff_location": "[Destination]",
+                "departure_time": "[Time]",
+                "available_seats": "[Number]",
+                "price": "R[Amount]",
+                "estimated_duration": "[Duration]",
+                "student_verified": true,
+                "action": "view_ride_details"
+              }
+            }
+          ]
+        },
+        {
+          "type": "floating_action_button",
+          "properties": {
+            "icon": "plus",
+            "action": "navigate_to_create_ride",
+            "tooltip": "Create Ride"
+          }
+        },
+        {
+          "type": "safety_features",
+          "components": [
+            {
+              "type": "emergency_button",
+              "properties": {
+                "always_visible": true,
+                "action": "emergency_contact_alert",
+                "position": "top_right"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "screen_name": "map_view",
+      "navigation": {
+        "type": "bottom_tab",
+        "position": 1,
+        "icon": "map",
+        "label": "Map"
+      },
+      "components": [
+        {
+          "type": "google_map",
+          "properties": {
+            "initial_location": "Stellenbosch University",
+            "zoom_level": 14,
+            "show_user_location": true,
+            "show_traffic": true,
+            "traffic_layer": true,
+            "real_time_updates": true
+          }
+        },
+        {
+          "type": "map_overlay_top",
+          "components": [
+            {
+              "type": "search_bar",
+              "properties": {
+                "hint": "Where do you want to go?",
+                "action": "search_destinations",
+                "style": "uber_search_bar"
+              }
+            }
+          ]
+        },
+        {
+          "type": "map_markers",
+          "components": [
+            {
+              "type": "ride_marker",
+              "properties": {
+                "type": "pickup",
+                "icon": "car",
+                "color": "secondary_color",
+                "data": "ride_info",
+                "animation": "pulse"
+              }
+            },
+            {
+              "type": "ride_marker",
+              "properties": {
+                "type": "dropoff",
+                "icon": "location_pin",
+                "color": "accent_color",
+                "data": "destination_info"
+              }
+            },
+            {
+              "type": "campus_marker",
+              "properties": {
+                "type": "campus_building",
+                "icon": "academic_cap",
+                "color": "primary_color",
+                "data": "campus_info"
+              }
+            }
+          ]
+        },
+        {
+          "type": "bottom_sheet",
+          "properties": {
+            "initial_height": "25%",
+            "max_height": "80%",
+            "content": "ride_details_preview",
+            "draggable": true
+          }
+        }
+      ]
+    },
+    {
+      "screen_name": "my_rides",
+      "navigation": {
+        "type": "bottom_tab",
+        "position": 2,
+        "icon": "calendar",
+        "label": "My Rides"
+      },
+      "components": [
+        {
+          "type": "app_bar",
+          "properties": {
+            "title": "My Rides"
+          }
+        },
+        {
+          "type": "tab_bar",
+          "tabs": [
+            {
+              "label": "Upcoming",
+              "badge_count": "[count]"
+            },
+            {
+              "label": "Completed",
+              "badge_count": null
+            },
+            {
+              "label": "My Offers",
+              "badge_count": "[count]"
+            }
+          ]
+        },
+        {
+          "type": "ride_history_list",
+          "components": [
+            {
+              "type": "ride_history_card",
+              "properties": {
+                "ride_type": "passenger/driver",
+                "route": "[From] → [To]",
+                "date_time": "[Date & Time]",
+                "status": "confirmed/pending/completed/cancelled",
+                "participants": "[Driver/Passengers]",
+                "price": "R[Amount]",
+                "rating_given": "[Rating/Pending]",
+                "actions": ["cancel", "message_driver", "view_details", "rate_ride", "book_again"]
+              }
+            }
+          ]
+        },
+        {
+          "type": "empty_state",
+          "show_when": "no_rides",
+          "properties": {
+            "illustration": "empty_rides",
+            "title": "No rides yet",
+            "description": "Start by finding a ride or offering one to fellow students",
+            "action_button": {
+              "text": "Find a Ride",
+              "action": "navigate_to_find_ride"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "screen_name": "messaging",
+      "navigation": {
+        "type": "bottom_tab",
+        "position": 3,
+        "icon": "chat_bubble",
+        "label": "Messages"
+      },
+      "components": [
+        {
+          "type": "app_bar",
+          "properties": {
+            "title": "Messages"
+          }
+        },
+        {
+          "type": "conversation_list",
+          "properties": {
+            "show_ride_context": true,
+            "real_time_updates": true,
+            "filter_options": ["All", "Active Rides", "Upcoming", "Archived"]
+          }
+        },
+        {
+          "type": "conversation_item",
+          "properties": {
+            "participant_name": "[Name]",
+            "participant_avatar": "[Avatar]",
+            "last_message": "[Message preview]",
+            "timestamp": "[Time]",
+            "unread_count": "[Number]",
+            "ride_context": "[Ride details]",
+            "student_verified": true
+          }
+        }
+      ]
+    },
+    {
+      "screen_name": "profile",
+      "navigation": {
+        "type": "bottom_tab",
+        "position": 4,
+        "icon": "user",
+        "label": "Profile"
+      },
+      "components": [
+        {
+          "type": "app_bar",
+          "properties": {
+            "title": "Profile",
+            "actions": ["edit", "settings"]
+          }
+        },
+        {
+          "type": "profile_header",
+          "properties": {
+            "avatar": "[Avatar URL]",
+            "name": "[Full Name]",
+            "student_number": "[Student ID]",
+            "verification_status": "verified/pending/unverified",
+            "member_since": "[Date]",
+            "university": "Stellenbosch University"
+          }
+        },
+        {
+          "type": "verification_badges",
+          "components": [
+            {
+              "type": "badge",
+              "properties": {
+                "label": "Email Verified",
+                "icon": "check_circle",
+                "color": "success_color"
+              }
+            },
+            {
+              "type": "badge",
+              "properties": {
+                "label": "Student ID Verified",
+                "icon": "academic_cap",
+                "color": "success_color"
+              }
+            },
+            {
+              "type": "badge",
+              "properties": {
+                "label": "Phone Verified",
+                "icon": "phone",
+                "color": "success_color"
+              }
+            }
+          ]
+        },
+        {
+          "type": "stats_row",
+          "components": [
+            {
+              "type": "stat_item",
+              "properties": {
+                "label": "Rides Taken",
+                "value": "[Number]",
+                "icon": "car_side"
+              }
+            },
+            {
+              "type": "stat_item",
+              "properties": {
+                "label": "Rides Offered",
+                "value": "[Number]",
+                "icon": "steering_wheel"
+              }
+            },
+            {
+              "type": "stat_item",
+              "properties": {
+                "label": "Rating",
+                "value": "[Rating]",
+                "icon": "star"
+              }
+            },
+            {
+              "type": "stat_item",
+              "properties": {
+                "label": "Money Saved",
+                "value": "R[Amount]",
+                "icon": "piggy_bank"
+              }
+            }
+          ]
+        },
+        {
+          "type": "profile_sections",
+          "components": [
+            {
+              "type": "section",
+              "title": "Account",
+              "items": [
+                {
+                  "label": "Personal Information",
+                  "icon": "user",
+                  "action": "edit_personal_info"
+                },
+                {
+                  "label": "Verification",
+                  "icon": "shield_check",
+                  "action": "manage_verification"
+                },
+                {
+                  "label": "Payment Methods",
+                  "icon": "credit_card",
+                  "action": "manage_payment_methods"
+                },
+                {
+                  "label": "Emergency Contacts",
+                  "icon": "phone",
+                  "action": "manage_emergency_contacts"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Preferences",
+              "items": [
+                {
+                  "label": "Ride Preferences",
+                  "icon": "settings",
+                  "action": "ride_preferences"
+                },
+                {
+                  "label": "Notifications",
+                  "icon": "bell",
+                  "action": "notification_settings"
+                },
+                {
+                  "label": "Privacy",
+                  "icon": "lock",
+                  "action": "privacy_settings"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "title": "Support",
+              "items": [
+                {
+                  "label": "Help Center",
+                  "icon": "question_mark_circle",
+                  "action": "help_center"
+                },
+                {
+                  "label": "Contact Support",
+                  "icon": "chat_bubble",
+                  "action": "contact_support"
+                },
+                {
+                  "label": "Safety",
+                  "icon": "shield",
+                  "action": "safety_center"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 
