@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
@@ -251,7 +252,7 @@ class RideService extends ChangeNotifier {
       // Check if user already has a pending request
       final existingRequest = ride.requests.firstWhere(
         (req) => req.passengerId == currentUserId && req.status == RequestStatus.pending,
-        orElse: () => const RideRequestModel(
+        orElse: () => RideRequestModel(
           requestId: '',
           rideId: '',
           passengerId: '',
@@ -261,9 +262,9 @@ class RideService extends ChangeNotifier {
             firstName: '',
             lastName: '',
             university: '',
-            verificationStatus: VerificationStatus(),
-            preferences: UserPreferences(),
-            roles: [],
+            verificationStatus: const VerificationStatus(),
+            preferences: const UserPreferences(),
+            roles: const [],
             createdAt: DateTime(2000),
             lastActive: DateTime(2000),
           ),
@@ -584,14 +585,14 @@ class RideService extends ChangeNotifier {
     // This is a basic implementation - in production, use a proper geolocation library
     const double earthRadius = 6371; // km
 
-    final lat1Rad = point1.latitude * (3.14159 / 180);
-    final lat2Rad = point2.latitude * (3.14159 / 180);
-    final deltaLatRad = (point2.latitude - point1.latitude) * (3.14159 / 180);
-    final deltaLngRad = (point2.longitude - point1.longitude) * (3.14159 / 180);
+    final lat1Rad = point1.latitude * (pi / 180);
+    final lat2Rad = point2.latitude * (pi / 180);
+    final deltaLatRad = (point2.latitude - point1.latitude) * (pi / 180);
+    final deltaLngRad = (point2.longitude - point1.longitude) * (pi / 180);
 
-    final a = (deltaLatRad / 2).sin() * (deltaLatRad / 2).sin() +
-        lat1Rad.cos() * lat2Rad.cos() * (deltaLngRad / 2).sin() * (deltaLngRad / 2).sin();
-    final c = 2 * (a.sqrt()).atan2((1 - a).sqrt());
+    final a = sin(deltaLatRad / 2) * sin(deltaLatRad / 2) +
+        cos(lat1Rad) * cos(lat2Rad) * sin(deltaLngRad / 2) * sin(deltaLngRad / 2);
+    final c = 2 * atan2(sqrt(a), sqrt(1 - a));
 
     return earthRadius * c;
   }

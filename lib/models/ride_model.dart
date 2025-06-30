@@ -435,6 +435,13 @@ class RideRequestModel {
   @override
   int get hashCode => requestId.hashCode;
 
+  /// Creates a RideRequestModel from a Firestore DocumentSnapshot
+  factory RideRequestModel.fromFirestore(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
+    data['requestId'] = doc.id;
+    return RideRequestModel.fromJson(data);
+  }
+
   @override
   String toString() {
     return 'RideRequestModel(requestId: $requestId, status: $status, passengerId: $passengerId)';
