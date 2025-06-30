@@ -1,0 +1,68 @@
+name: hopin
+description: Student ride-sharing app for Stellenbosch University
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Firebase & Backend
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  cloud_firestore: ^4.15.8
+  firebase_analytics: ^10.8.9
+  firebase_crashlytics: ^3.4.18
+  firebase_storage: ^11.6.9
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # UI & Navigation
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  
+  # Location & Maps
+  geolocator: ^9.0.2
+  geocoding: ^2.2.2
+  google_maps_flutter: ^2.5.3
+  
+  # HTTP & Networking
+  http: ^1.1.2
+  
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.3.3
+  
+  # Image Handling
+  image_picker: ^1.0.7
+  cached_network_image: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  mockito: ^5.4.4
+  build_runner: ^2.4.8
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/illustrations/
+    
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
